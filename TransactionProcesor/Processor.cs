@@ -50,10 +50,10 @@ public class Processor
             // });
             //   });   
             
-            Parallel.ForEach(transactions, ProcessTransaction);
+         // Parallel.ForEach(transactions, ProcessTransaction);
             
             /**AWAIT ALL ALSO WORKS **/
-          // await Task.WhenAll(transactions.Select(transaction => Task.Run(() => ProcessTransaction(transaction))));
+          await Task.WhenAll(transactions.Select(transaction => Task.Run(() => ProcessTransaction(transaction))));
      
         
         
