@@ -16,8 +16,16 @@ public class ItemsReverser
      * low-level
      * 
      */
-    public T Reverse<T>(T input) where T : class, IEnumerable
+    
+    private readonly Object _objlock = new();
+
+    public T Reverse<T>(T input) where T : class
     {
+        if (input == null)
+        {
+            throw new ArgumentNullException("input is null");
+        }
+        
         if (input is string)
         {
             if (string.IsNullOrEmpty(input.ToString()))
@@ -26,37 +34,39 @@ public class ItemsReverser
             }
             
             //reverse string
-            var reversed = new StringBuilder(input.ToString().Length);
-            for (int i = input.ToString().Length - 1; i >= 0;  i--)
-            {
-                reversed.Append(input.ToString()[i]);
-                
-            }
-            return reversed.ToString() as T;
+            return ReverseString(input as string) as T;
                     
         }
+    }
 
-        if (input == null)
-        {
-            throw new ArgumentNullException("input is null");
-        }
-
+    public IList<T> Reverse<T>(IList<T> input)
+    {
         if (input is IEnumerable)
         {
-            
-            var ienuminput = input as IEnumerable;
-            if (ienuminput.Count() > 0)
+            var reversed = new List<T>();
+            for (int i = 0; i < input.Count / 2; i++)
             {
                 
-            }
-            var reversed = new List<T>();
-            for (int i = input.Count(); i >= 0; i--)
-            {
                 reversed.Add(input.ElementAt(i));
             }
 
-            return reversed as T;
+            return reversed;
         }
-        return "dlroW olleH" as T;
+        return input as IList<T>;
+    }
+
+    private string ReverseString(string input)
+    {
+        lock (_objlock)
+        {
+            var reversed = new StringBuilder(input.Length);
+            for (int i = input.Length - 1; i >= 0; i--)
+            {
+                reversed.Append(input[i]);
+
+            }
+
+            return reversed.ToString();
+        }
     }
 }

@@ -20,7 +20,7 @@ public class ItemsReverserTests
         string expected = "dlroW olleH";
         
         //when
-       var result = sut.Reverse(input);
+       var result = sut.Reverse<string>("input");
        //Action action = () => sut.Reverse(input);
         
         //then
