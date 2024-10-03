@@ -37,32 +37,37 @@ public class ItemsReverser
             return ReverseString(input as string) as T;
                     
         }
+        
+        return input;
     }
 
     public IList<T> Reverse<T>(IList<T> input)
     {
         if (input is IEnumerable)
         {
-            var reversed = new List<T>();
+           // var reversed = new List<T>();
             for (int i = 0; i < input.Count / 2; i++)
             {
-                
-                reversed.Add(input.ElementAt(i));
+                var temp = input[i];
+                input[i] = input[input.Count - i - 1];
+                input[input.Count - i - 1] = temp;
             }
 
-            return reversed;
+            return input;
         }
-        return input as IList<T>;
+        return input;
     }
 
     private string ReverseString(string input)
     {
         lock (_objlock)
         {
-            var reversed = new StringBuilder(input.Length);
-            for (int i = input.Length - 1; i >= 0; i--)
+            var reversed = new StringBuilder(input);
+            for (int i = 0; i < input.Length / 2; i++)
             {
-                reversed.Append(input[i]);
+                var temp = reversed[i];
+                reversed[i] = reversed[input.Length - i - 1];
+                reversed[input.Length - i - 1] = temp;
 
             }
 

@@ -94,7 +94,7 @@ public class ItemsReverserTests
         int [] expected =  { 5,4,3,2,1 };
         
         //when
-        var result = sut.Reverse(input);
+        var result = sut.Reverse(input as IList<int>);
        
         //then
         result.ShouldBeEquivalentTo(expected);
