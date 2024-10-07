@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransactionProcesor", "..\T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransactionProcessor.UnitTests", "..\TransactionProcessor.UnitTests\TransactionProcessor.UnitTests.csproj", "{4A1C31C0-EC2A-4DC1-9F03-CB7845CA39DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentGatewayApi", "PaymentGatewayApi\PaymentGatewayApi.csproj", "{07C28D31-0F97-46C7-8C3D-003CB13A69E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{4A1C31C0-EC2A-4DC1-9F03-CB7845CA39DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A1C31C0-EC2A-4DC1-9F03-CB7845CA39DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A1C31C0-EC2A-4DC1-9F03-CB7845CA39DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07C28D31-0F97-46C7-8C3D-003CB13A69E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07C28D31-0F97-46C7-8C3D-003CB13A69E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07C28D31-0F97-46C7-8C3D-003CB13A69E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07C28D31-0F97-46C7-8C3D-003CB13A69E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
